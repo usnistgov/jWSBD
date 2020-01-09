@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<metadata xmlns="http://docs.oasis-open.org/bioserv/ns/wsbd-1.0">
+	<item>
+		<key>turtleCount</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:type="Parameter">
+			<name>turtleCount</name>
+			<type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:positiveInteger</type>
+			<readOnly>false</readOnly>
+			<supportsMultiple>true</supportsMultiple>
+			<defaultValue xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xsi:type="xs:integer">22</defaultValue>
+			<allowedValues>
+				<allowedValue xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					xsi:type="xs:integer">2</allowedValue>
+				<allowedValue xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					xsi:type="xs:integer">32</allowedValue>
+			</allowedValues>
+		</value>
+	</item>
+	<item>
+		<key>capabilities</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:type="Parameter">
+			<name>capabilities</name>
+			<type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</type>
+			<readOnly>true</readOnly>
+			<supportsMultiple>false</supportsMultiple>
+			<defaultValue xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xsi:type="xs:string">nothing!</defaultValue>
+		</value>
+	</item>
+		<item>
+		<key>modality</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:type="Parameter">
+			<name>capabilities</name>
+			<type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</type>
+			<readOnly>true</readOnly>
+			<supportsMultiple>false</supportsMultiple>
+			<defaultValue xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xsi:type="xs:string">GallopingSpeed</defaultValue>
+		</value>
+	</item>
+		<item>
+		<key>submodality</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:type="Parameter">
+			<name>capabilities</name>
+			<type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</type>
+			<readOnly>true</readOnly>
+			<supportsMultiple>false</supportsMultiple>
+			<defaultValue xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xsi:type="xs:string">FourLegs</defaultValue>
+		</value>
+	</item>
+</metadata>

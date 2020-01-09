@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:wsbd="http://docs.oasis-open.org/bioserv/ns/wsbd-1.0"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://docs.oasis-open.org/bioserv/ns/wsbd-1.0"
+    elementFormDefault="qualified">
+
+    <xs:element name="configuration" type="wsbd:Dictionary" nillable="true" />
+    <xs:element name="result" type="wsbd:Result" nillable="true" />
+
+    <xs:complexType name="Result">
+        <xs:sequence>
+            <xs:element name="status" type="wsbd:Status" />
+            <xs:element name="badFields" type="wsbd:StringArray" nillable="true" minOccurs="0" />
+            <xs:element name="captureIds" type="wsbd:UuidArray" nillable="true" minOccurs="0" />
+            <xs:element name="metadata" type="wsbd:Dictionary" nillable="true" minOccurs="0" />
+            <xs:element name="message" type="xs:string" nillable="true" minOccurs="0" />
+            <xs:element name="sensorData" type="xs:base64Binary" nillable="true" minOccurs="0" />
+            <xs:element name="sessionId" type="wsbd:UUID" nillable="true" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="UUID">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Status">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="success" />
+            <xs:enumeration value="failure" />
+            <xs:enumeration value="invalidId" />
+            <xs:enumeration value="canceled" />
+            <xs:enumeration value="canceledWithSensorFailure" />
+            <xs:enumeration value="sensorFailure" />
+            <xs:enumeration value="lockNotHeld" />
+            <xs:enumeration value="lockHeldByAnother" />
+            <xs:enumeration value="initializationNeeded" />
+            <xs:enumeration value="configurationNeeded" />
+            <xs:enumeration value="sensorBusy" />
+            <xs:enumeration value="sensorTimeout" />
+            <xs:enumeration value="unsupported" />
+            <xs:enumeration value="badValue" />
+            <xs:enumeration value="noSuchParamter" />
+            <xs:enumeration value="preparingDownload" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="SensorStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ready" />
+            <xs:enumeration value="initializing" />
+            <xs:enumeration value="configuring" />
+            <xs:enumeration value="capturing" />
+            <xs:enumeration value="uninitializing" />
+            <xs:enumeration value="canceling"/>
+        </xs:restriction>
+    </xs:simpleType>
+	
+	<xs:simpleType name="Submodality">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RightThumbFlat" />
+			<xs:enumeration value="RightIndexFlat" />
+			<xs:enumeration value="RightMiddleFlat" />
+			<xs:enumeration value="RightRingFlat" />
+			<xs:enumeration value="RightLittleFlat" />
+			<xs:enumeration value="LeftThumbFlat" />
+			<xs:enumeration value="LeftIndexFlat" />
+			<xs:enumeration value="LeftMiddleFlat" />
+			<xs:enumeration value="LeftRingFlat" />
+			<xs:enumeration value="LeftLittleFlat" />
+			<xs:enumeration value="UnknownFlat" />
+			<xs:enumeration value="LeftSlap" />
+			<xs:enumeration value="RightSlap" />
+			<xs:enumeration value="ThumbsSlap" />
+			<xs:enumeration value="TwoFingerSlap" />
+			<xs:enumeration value="UnknownSlap" />
+			<xs:enumeration value="RightThumbRolled" />
+			<xs:enumeration value="RightIndexRolled" />
+			<xs:enumeration value="RightMiddleRolled" />
+			<xs:enumeration value="RightRingRolled" />
+			<xs:enumeration value="RightLittleRolled" />
+			<xs:enumeration value="LeftThumbRolled" />
+			<xs:enumeration value="LeftIndexRolled" />
+			<xs:enumeration value="LeftMiddleRolled" />
+			<xs:enumeration value="LeftRingRolled" />
+			<xs:enumeration value="LeftLittleRolled" />
+			<xs:enumeration value="UnknownRolled" />
+		</xs:restriction>
+	</xs:simpleType>
+
+    <xs:simpleType name="Modality">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Scent" />
+            <xs:enumeration value="DNA" />
+            <xs:enumeration value="Scent" />
+            <xs:enumeration value="DNA" />
+            <xs:enumeration value="Ear" />
+            <xs:enumeration value="Face" />
+            <xs:enumeration value="Finger" />
+            <xs:enumeration value="Foot" />
+            <xs:enumeration value="Vein" />
+            <xs:enumeration value="HandGeometry" />
+            <xs:enumeration value="Iris" />
+            <xs:enumeration value="Retina" />
+            <xs:enumeration value="Voice" />
+            <xs:enumeration value="Gait" />
+            <xs:enumeration value="Keystroke" />
+            <xs:enumeration value="LipMovement" />
+            <xs:enumeration value="SignatureSign" />
+            <xs:enumeration value="Unknown" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Array">
+        <xs:sequence>
+            <xs:element name="element" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="StringArray">
+        <xs:sequence>
+            <xs:element name="element" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UuidArray">
+        <xs:sequence>
+            <xs:element name="element" type="wsbd:UUID" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ResourceArray">
+        <xs:sequence>
+            <xs:element name="element" type="wsbd:Resource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Dictionary">
+        <xs:sequence>
+            <xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="key" type="xs:string" nillable="true" />
+                        <xs:element name="value" type="xs:anyType" nillable="true" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Parameter">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" nillable="true" />
+            <xs:element name="type" type="xs:QName" nillable="true" />
+            <xs:element name="readOnly" type="xs:boolean" minOccurs="0" />
+            <xs:element name="supportsMultiple" type="xs:boolean" minOccurs="0" />
+            <xs:element name="defaultValue" type="xs:anyType" nillable="true" />
+            <xs:element name="allowedValues" nillable="true" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="allowedValue" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Range">
+        <xs:sequence>
+            <xs:element name="minimum" type="xs:anyType" nillable="true" minOccurs="0" />
+            <xs:element name="maximum" type="xs:anyType" nillable="true" minOccurs="0" />
+            <xs:element name="minimumIsExclusive" type="xs:boolean" nillable="true" minOccurs="0" />
+            <xs:element name="maximumIsExclusive" type="xs:boolean" nillable="true" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Resolution">
+        <xs:sequence>
+            <xs:element name="width" type="xs:double" />
+            <xs:element name="height" type="xs:double" />
+            <xs:element name="unit" type="xs:string" nillable="true" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Resource">
+        <xs:sequence>
+            <xs:element name="uri" type="xs:anyURI" />
+            <xs:element name="contentType" type="xs:string" nillable="true" minOccurs="0" />
+            <xs:element name="relationship" type="xs:string" nillable="true" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

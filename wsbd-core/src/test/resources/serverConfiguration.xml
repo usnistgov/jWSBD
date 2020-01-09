@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<metadata xmlns="http://docs.oasis-open.org/bioserv/ns/wsbd-1.0">
+	<item>
+		<key>lockStealingPreventionPeriod</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+	<item>
+		<key>postAcquisitionProcessingTime</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+	<item>
+		<key>getCaptureStatusTimeout</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+	<item>
+		<key>maximumStorageCapacity</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1048576</value>
+	</item>
+	<item>
+		<key>setConfigurationTimeout</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+	<item>
+		<key>beginCaptureTimeout</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+	<item>
+		<key>cancelAsyncCaptureTimeout</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+	<item>
+		<key>transferrableAsyncCapture</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:boolean">true</value>
+	</item>
+	<item>
+		<key>autoDropLRUSessions</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:boolean">true</value>
+	</item>
+	<item>
+		<key>maximumConcurrentSessions</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">3</value>
+	</item>
+	<item>
+		<key>inactivityTimeout</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+	<item>
+		<key>initializationTimeout</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+	<item>
+		<key>captureTimeout</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+		<item>
+		<key>endCaptureTimeout</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+	<item>
+		<key>getConfigurationTimeout</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+	<item>
+		<key>lruCaptureDataAutomaticallyDropped</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:boolean">true</value>
+	</item>
+	<item>
+		<key>uninitializationTimeout</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:integer">1000</value>
+	</item>
+</metadata>

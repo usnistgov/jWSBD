@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<metadata xmlns="http://docs.oasis-open.org/bioserv/ns/wsbd-1.0">
+	<item>
+		<key>livePreview</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:type="ResourceArray">
+			<element>
+				<uri>http://localhost/testservice/stream/cows</uri>
+				<contentType>text/html</contentType>
+				<relationship>livePreview</relationship>
+			</element>
+			<element>
+				<uri>http://localhost/testservice/stream/trees/uuid</uri>
+				<contentType>text/html</contentType>
+				<relationship>livePreview</relationship>
+			</element>
+		</value>
+	</item>
+</metadata>

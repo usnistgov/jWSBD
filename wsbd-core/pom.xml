@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+            http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <name>WS-Biometric Devices Core Library</name>
+
+    <groupId>gov.nist.itl.wsbd</groupId>
+    <artifactId>wsbd-core</artifactId>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>gov.nist.itl</groupId>
+        <artifactId>wsbd</artifactId>
+        <version>1.3</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <!-- If we e.g. execute on JDK 1.7, we should compile for Java 7 to get 
+                the same (or higher) JAXB API version as used during the xjc execution. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <configuration>
+                    <failOnError>false</failOnError>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+                <configuration>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+            <!-- this plugin fixes a bug with the XML class generation: https://github.com/mojohaus/jaxb2-maven-plugin/issues/44 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/jaxb</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>2.2</version>
+                <executions>
+                    <execution>
+                        <id>xjc-schema</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Target to bulid just the generated code org.codehaus.mojo:jaxb2-maven-plugin:xjc -->
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <xjcSourceExcludeFilters>
+					    <!--
+						 https://github.com/mojohaus/jaxb2-maven-plugin/issues/48
+						 
+						 Full paths which contain spaces are not friendly with jaxb2-maven-plugin
+						-->
+						
+                        <filter implementation="org.codehaus.mojo.jaxb2.shared.filters.pattern.PatternFileFilter">
+                            <patterns>
+                                <pattern>\.svn.*</pattern>
+                            </patterns>
+                        </filter>
+                    </xjcSourceExcludeFilters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<metadata xmlns="http://docs.oasis-open.org/biometrics/ns/ws-bd-1.0">
+	<item>
+		<key>livePreview</key>
+		<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:type="ResourceArray">
+			<element>
+				<uri>http://localhost/simulatedservice/stream/locked/uuid</uri>
+				<contentType>multipart/x-mixed-replace;boundary=foo</contentType>
+				<relationship>livePreview</relationship>
+			</element>
+			<element>
+				<uri>http://localhost/simulatedservice/stream/public</uri>
+				<contentType>multipart/x-mixed-replace;boundary=foo</contentType>
+				<relationship>livePreview</relationship>
+			</element>
+		</value>
+	</item>
+</metadata>
